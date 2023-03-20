@@ -23,7 +23,7 @@
                 Thank you for your vote!
             {{/unless}}
         </div>
-        <div class="">
+        <div class="voting-buttons">
             {{#unless this.voted}}
                 <button class="icon-button" aria-label="thumbs up">
                     <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
@@ -33,13 +33,13 @@
                 </button>
             {{/unless}}
             {{#unless this.voted}}
-                <button class="">
+                <button class="vote-button">
                     Vote Now
                 </button>
-                {{else}}
-                    <button class="">
-                        Vote Again
-                    </button>
+            {{else}}
+                <button class="vote-button">
+                    Vote Again
+                </button>
             {{/unless}}
         </div>
         <div class="percentage-bar">

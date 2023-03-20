@@ -29,6 +29,32 @@ div{
     width: 30px;
 }
 
+.voting-buttons > .icon-button {
+    height: 30px;
+    width: 30px;
+}
+
+.voting-buttons > button > img{
+    height: 15px;
+    width: 15px;
+}
+
+.voting-buttons >.icon-button[aria-label="thumbs up"] {
+    background-color: rgba(var(--color-green-positive), 1);
+}
+
+.voting-buttons >.icon-button[aria-label="thumbs down"] {
+    background-color: rgba(var(--color-yellow-negative), 1);
+}
+
+.vote-button{
+    height: 38px;
+    color: #FFFFFF;
+    background-color:  rgba(0, 0, 0, 0.6);
+    border: 1px solid #FFFFFF;
+    padding: 0 5%;
+}
+
 .percentage-bar{
     display: flex;
     white-space: nowrap;
