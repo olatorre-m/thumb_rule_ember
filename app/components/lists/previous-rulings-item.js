@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import moment from 'moment';
 
 export default class PreviousRulingItemComponent extends Component {
   @tracked person;
@@ -25,5 +26,9 @@ export default class PreviousRulingItemComponent extends Component {
       (this.person.votes.negative * 100) /
       (this.person.votes.positive + this.person.votes.negative)
     ).toFixed(1);
+  }
+
+  get timeFromNow() {
+    return moment(this.person.lastUpdated).fromNow();
   }
 }
