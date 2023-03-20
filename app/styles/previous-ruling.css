@@ -85,6 +85,7 @@ div.voting-buttons{
     background-color:  rgba(0, 0, 0, 0.6);
     border: 1px solid #FFFFFF;
     padding: 0 25px;
+    margin-left: 12px;
 }
 
 .card-footer{
@@ -98,6 +99,10 @@ div.voting-buttons{
 
 .date-section{
     padding-bottom: 10px;
+}
+
+.card-footer > .voting-buttons > button{
+    margin-left: 12px;
 }
 
 .percentage-bar{
