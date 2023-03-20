@@ -9,6 +9,7 @@
     height: 90vw;
     width: 90vw;
     border-radius: 0px;
+    background-size: cover;
 }
 
 div{
@@ -20,7 +21,6 @@ div{
 
 .card-title{
     display: inline-flex;
-    width: 310px;
 }
 
 .title{
