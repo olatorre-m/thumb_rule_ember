@@ -1,0 +1,62 @@
+.card-container{
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 90vw;
+    width: 90vw;
+    border-radius: 0px;
+}
+
+div{
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.card-title{
+    font-size: 30px;
+    line-height: 36px;
+    
+}
+
+.card-title > .thumbs{
+    height: 30px;
+    width: 30px;
+}
+
+.percentage-bar{
+    display: flex;
+    white-space: nowrap;
+    height: 36px;
+    width: 100%;
+}
+
+.percentage-bar > .thumbs{
+    height: 100%;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.percentage-bar > .thumbs > img{
+    height: 15px;
+    width: 15px;
+}
+
+.percentage-bar >  button{
+    min-width: 70px;
+}
+
+.percentage-bar > .icon-button[aria-label="thumbs up"] {
+    text-align: left;
+    padding: 0 0 0 15px;
+}
+
+.percentage-bar > .icon-button[aria-label="thumbs down"] {
+    padding: 0 15px 0 0;
+    text-align: right;
+}
