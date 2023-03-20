@@ -35,7 +35,7 @@ div{
 .description{
     font-size: 15px;
     line-height: 18px;
-    padding: 0px 15px 0px 5px;
+    padding: 10px 10px 0px 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -51,12 +51,16 @@ div{
 }
 
 div.voting-buttons{
-    padding: 8px;
+    padding: 8px  0px;
 }
 
 .voting-buttons > .icon-button {
     height: 30px;
     width: 30px;
+}
+
+.voting-buttons > button.icon-button{
+    padding-left: 5px;
 }
 
 .winner > .icon-button > img,
