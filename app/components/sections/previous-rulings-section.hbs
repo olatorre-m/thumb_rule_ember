@@ -3,6 +3,8 @@
 {{!--Aqui deberia ir el dd para grid o para list--}}
 
 {{!--Calling to Previous Ruling list--}}
-{{#each this.data.data as |person|}}
-    <Lists::PreviousRulingsItem @person = {{person}}/>
-{{/each}}
+<div class="card-container">
+    {{#each this.data.data as |person|}}
+        <Lists::PreviousRulingsItem @person = {{person}}/>
+    {{/each}}
+</div>
