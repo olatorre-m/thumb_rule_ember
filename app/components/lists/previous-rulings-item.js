@@ -31,4 +31,8 @@ export default class PreviousRulingItemComponent extends Component {
   get timeFromNow() {
     return moment(this.person.lastUpdated).fromNow();
   }
+
+  get greater() {
+    return this.positivePercentage > this.negativePercentage;
+  }
 }
