@@ -17,10 +17,6 @@ export default class PreviousRulingItemComponent extends Component {
     if (this.args.person) {
       this.person = this.args.person;
     }
-
-    if (this.args.view) {
-      this.view = this.args.view;
-    }
   }
 
   get positivePercentage() {
@@ -61,5 +57,12 @@ export default class PreviousRulingItemComponent extends Component {
 
   toggleVoted() {
     this.voted = !this.voted;
+  }
+
+  @action
+  changeView(){
+    if (this.args.view) {
+      this.view = this.args.view;
+    }
   }
 }
