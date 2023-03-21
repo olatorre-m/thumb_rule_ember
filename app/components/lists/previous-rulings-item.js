@@ -85,26 +85,41 @@ export default class PreviousRulingItemComponent extends Component {
     return moment(this.person.lastUpdated).fromNow();
   }
 
+  /**
+   * This action uses updates positive votes when positive vote button is clicked
+   */
   @action
   sumOnePositive() {
     set(this.person.votes, 'positive', (this.person.votes.positive += 1));
     this.toggleCanVote();
   }
 
+  /**
+   * This action uses updates negative votes when negative vote button is clicked
+   */
   @action
   sumOneNegative() {
     set(this.person.votes, 'negative', (this.person.votes.negative += 1));
     this.toggleCanVote();
   }
 
+  /**
+   * Toogle boolean voted
+   */
   toggleVoted() {
     this.voted = !this.voted;
   }
 
+  /**
+   * Toogle boolean canVote
+   */
   toggleCanVote() {
     this.canVote = !this.canVote;
   }
 
+  /**
+   * This action updates percentage values and votes in local storage and local object
+   */
   @action
   submitVote() {
     localStorage.setItem(
@@ -120,11 +135,17 @@ export default class PreviousRulingItemComponent extends Component {
     this.toggleVoted();
   }
 
+  /**
+   * This action toogle boolean voted to reset buttons
+   */
   @action
   reset() {
     this.toggleVoted();
   }
 
+  /**
+   * This action updates view value when one option is selected
+   */
   @action
   changeView() {
     if (this.args.view) {
