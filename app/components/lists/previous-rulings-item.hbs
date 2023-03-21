@@ -2,65 +2,66 @@
     <div class="card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%),
     url(assets/img/{{this.person.picture}});" 
     alt="Picture of {{this.person.name}}">
-        
-        <div class="card-title">
-            <div class="winner">
-                {{#if this.greater}}
-                    <button class="thumbs-up">
-                        <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
-                    </button>
-                {{else}}
-                    <button class="thumbs-down" aria-label="thumbs down">
-                        <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
-                    </button>
-                {{/if}}
-            </div>
-            <div>
-                <div class="title">
-                    {{this.person.name}}
-                    <EmberTooltip>
+        <div class="card-body">
+            <div class="card-title">
+                <div class="winner">
+                    {{#if this.greater}}
+                        <button class="thumbs-up">
+                            <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+                        </button>
+                    {{else}}
+                        <button class="thumbs-down" aria-label="thumbs down">
+                            <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+                        </button>
+                    {{/if}}
+                </div>
+                <div id="tittle-text">
+                    <div class="title">
                         {{this.person.name}}
-                    </EmberTooltip>
-                </div>
-                <div class="description">
-                    {{this.person.description}}
-                    <EmberTooltip>
+                        <EmberTooltip>
+                            {{this.person.name}}
+                        </EmberTooltip>
+                    </div>
+                    <div class="description">
                         {{this.person.description}}
-                    </EmberTooltip>
+                        <EmberTooltip>
+                            {{this.person.description}}
+                        </EmberTooltip>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-footer">
-            <div class="date-section">
-                {{#unless this.voted}}
-                    <span>    
-                        {{this.timeFromNow}}
-                    </span> in
-                    <span>
-                        {{this.person.category}}
-                    </span>
-                {{else}}
-                    Thank you for your vote!
-                {{/unless}}
-            </div>
-            <div class="voting-buttons">
-                {{#unless this.voted}}
-                    <button {{on "click" this.sumOnePositive}} class="icon-button" aria-label="thumbs up">
-                        <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
-                    </button>
-                    <button {{on "click" this.sumOneNegative}} class="icon-button" aria-label="thumbs down">
-                        <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
-                    </button>
-                {{/unless}}
-                {{#unless this.voted}}
-                    <button type="button" class="vote-button">
-                        Vote Now
-                    </button>
-                {{else}}
-                    <button type="button" class="vote-button">
-                        Vote Again
-                    </button>
-                {{/unless}}
+            <div class="card-footer">
+                <div class="date-section">
+                    {{#unless this.voted}}
+                        <span>    
+                            {{this.timeFromNow}}
+                        </span> in
+                        <span>
+                            {{this.person.category}}
+                        </span>
+                    {{else}}
+                        Thank you for your vote!
+                    {{/unless}}
+                </div>
+                <div class="voting-buttons">
+                    {{#unless this.voted}}
+                        <button {{on "click" this.sumOnePositive}} class="icon-button" aria-label="thumbs up">
+                            <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+                        </button>
+                        <button {{on "click" this.sumOneNegative}} class="icon-button" aria-label="thumbs down">
+                            <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+                        </button>
+                    {{/unless}}
+                    {{#unless this.voted}}
+                        <button type="button" class="vote-button">
+                            Vote Now
+                        </button>
+                    {{else}}
+                        <button type="button" class="vote-button">
+                            Vote Again
+                        </button>
+                    {{/unless}}
+                </div>
             </div>
         </div>
         <div class="percentage-bar">
