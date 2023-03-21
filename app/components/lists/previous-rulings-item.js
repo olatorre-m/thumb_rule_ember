@@ -19,7 +19,7 @@ export default class PreviousRulingItemComponent extends Component {
       this.person = this.args.person;
     }
 
-    this.setLocalStorage();
+    this.setlocalStorage();
     this.setNegativePercentage();
     this.setPositivePercentage();
   }
@@ -31,9 +31,9 @@ export default class PreviousRulingItemComponent extends Component {
    * Params void
    * returns void
    */
-  setLocalStorage() {
-    let positiveVotes = localStorage.getItem(this.person.name + '_positive');
-    let negativeVotes = localStorage.getItem(this.person.name + '_negative');
+  setlocalStorage() {
+    let positiveVotes = localStorage.getItem(this.person.picture + '_positive');
+    let negativeVotes = localStorage.getItem(this.person.picture + '_negative');
 
     if (!positiveVotes) {
       localStorage.setItem(
@@ -41,7 +41,7 @@ export default class PreviousRulingItemComponent extends Component {
         this.person.votes.positive
       );
     } else {
-      set(this.person.votes, 'positive', positiveVotes);
+      set(this.person.votes, 'positive', parseInt(positiveVotes));
     }
 
     if (!negativeVotes) {
@@ -50,7 +50,7 @@ export default class PreviousRulingItemComponent extends Component {
         this.person.votes.negative
       );
     } else {
-      set(this.person.votes, 'negative', negativeVotes);
+      set(this.person.votes, 'negative', parseInt(negativeVotes));
     }
   }
 
