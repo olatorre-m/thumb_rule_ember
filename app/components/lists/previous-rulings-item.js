@@ -8,6 +8,7 @@ import moment from 'moment';
 export default class PreviousRulingItemComponent extends Component {
   @tracked person;
   @tracked voted = false;
+  @tracked canVote = false;
   @tracked view;
   @service media;
 
@@ -100,18 +101,34 @@ export default class PreviousRulingItemComponent extends Component {
   @action
   sumOnePositive() {
     set(this.person.votes, 'positive', (this.person.votes.positive += 1));
-    this.toggleVoted;
-    console.log(this.person.votes.positive);
+    this.toggleCanVote();
   }
 
   @action
   sumOneNegative() {
     set(this.person.votes, 'negative', (this.person.votes.negative += 1));
-    this.toggleVoted;
+    this.toggleCanVote();
   }
 
   toggleVoted() {
     this.voted = !this.voted;
+  }
+
+  toggleCanVote() {
+    this.canVote = !this.canVote;
+  }
+
+  @action
+  submitVote() {
+    localStorage.setItem(
+      this.person.picture + '_negative',
+      this.person.votes.negative
+    );
+    localStorage.setItem(
+      this.person.picture + '_positive',
+      this.person.votes.positive
+    );
+    this.toggleCanVote();
   }
 
   @action
