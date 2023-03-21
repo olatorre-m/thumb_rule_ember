@@ -20,8 +20,7 @@ export default class PreviousRulingItemComponent extends Component {
     }
 
     this.setlocalStorage();
-    this.setNegativePercentage();
-    this.setPositivePercentage();
+    this.setPercentages();
   }
 
   /**
@@ -68,36 +67,6 @@ export default class PreviousRulingItemComponent extends Component {
   }
 
   /**
-   * This function set the percentage of negatives votes
-   *
-   * Params void
-   * returns float with 1 decimal
-   */
-  setNegativePercentage() {
-    let percentage = (
-      (this.person.votes.negative * 100) /
-      (this.person.votes.positive + this.person.votes.negative)
-    ).toFixed(1);
-
-    set(this.person.votes, 'negativePercentage', percentage);
-  }
-
-  /**
-   * This function set the percentage of positive votes
-   *
-   * Params void
-   * returns float with 1 decimal
-   */
-  setPositivePercentage() {
-    let percentage = (
-      (this.person.votes.positive * 100) /
-      (this.person.votes.positive + this.person.votes.negative)
-    ).toFixed(1);
-
-    set(this.person.votes, 'positivePercentage', percentage);
-  }
-
-  /**
    * This helper calculates the percentage of negatives votes
    *
    * Params void
@@ -108,6 +77,28 @@ export default class PreviousRulingItemComponent extends Component {
       (this.person.votes.negative * 100) /
       (this.person.votes.positive + this.person.votes.negative)
     ).toFixed(1);
+  }
+
+  /**
+   * This function set the percentage of negatives votes
+   *
+   * Params void
+   * returns float with 1 decimal
+   */
+  setPercentages() {
+    let percentage = (
+      (this.person.votes.negative * 100) /
+      (this.person.votes.positive + this.person.votes.negative)
+    ).toFixed(1);
+
+    set(this.person.votes, 'negativePercentage', percentage);
+
+    percentage = (
+      (this.person.votes.positive * 100) /
+      (this.person.votes.positive + this.person.votes.negative)
+    ).toFixed(1);
+
+    set(this.person.votes, 'positivePercentage', percentage);
   }
 
   /**
@@ -160,8 +151,7 @@ export default class PreviousRulingItemComponent extends Component {
       this.person.picture + '_positive',
       this.person.votes.positive
     );
-    this.setNegativePercentage();
-    this.setPositivePercentage();
+    this.setPercentages();
     this.toggleCanVote();
     this.toggleVoted();
   }

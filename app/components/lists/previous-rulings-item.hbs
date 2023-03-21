@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="percentage-bar">
+        <div class="percentage-bar" {{did-update this.changeView @view}}>
             <button class="icon-button thumbs" aria-label="thumbs up" style="width: {{this.person.votes.positivePercentage}}%">
                 <img src="assets/img/thumbs-up.svg" alt="thumbs up" /> {{this.person.votes.positivePercentage}}
             </button>
