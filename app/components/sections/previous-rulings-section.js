@@ -16,18 +16,9 @@ export default class PreviousRulingSectionComponent extends Component {
     }
   }
 
-  get isMobile() {
-    return this.media.isMobile;
-  }
-
-  get isTablet() {
-    return this.media.isTablet;
-  }
-
-  get isDesktop() {
-    return this.media.isDesktop;
-  }
-
+  /**
+   * This action updates view value when one option is selected
+   */
   @action
   onSelectOption(option) {
     this.view = option.target.value;
