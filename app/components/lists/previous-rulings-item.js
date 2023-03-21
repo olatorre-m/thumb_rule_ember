@@ -17,8 +17,46 @@ export default class PreviousRulingItemComponent extends Component {
     if (this.args.person) {
       this.person = this.args.person;
     }
+
+    this.setLocalStorage();
   }
 
+  /**
+   * This function sets the local storage with the positive and negatives
+   * values of each person
+   *
+   * Params void
+   * returns void
+   */
+  setLocalStorage() {
+    let positiveVotes = localStorage.getItem(this.person.name + '_positive');
+    let negativeVotes = localStorage.getItem(this.person.name + '_negative');
+
+    if (!positiveVotes) {
+      localStorage.setItem(
+        this.person.picture + '_positive',
+        this.person.votes.positive
+      );
+    } else {
+      set(this.person.votes, 'positive', positiveVotes);
+    }
+
+    if (!negativeVotes) {
+      localStorage.setItem(
+        this.person.picture + '_negative',
+        this.person.votes.negative
+      );
+    } else {
+      set(this.person.votes, 'negative', negativeVotes);
+    }
+  }
+
+  /**
+   * This helper calculates the percentage of positive votes
+   *
+   * Params void
+   * returns float with 1 decimal
+   */
   get positivePercentage() {
     return (
       (this.person.votes.positive * 100) /
@@ -26,6 +64,12 @@ export default class PreviousRulingItemComponent extends Component {
     ).toFixed(1);
   }
 
+  /**
+   * This helper calculates the percentage of negatives votes
+   *
+   * Params void
+   * returns float with 1 decimal
+   */
   get negativePercentage() {
     return (
       (this.person.votes.negative * 100) /
@@ -33,14 +77,25 @@ export default class PreviousRulingItemComponent extends Component {
     ).toFixed(1);
   }
 
+  /**
+   * This helper uses moment to calculate the time between the post and today
+   *
+   * Params void
+   * returns string, sentence with natural language with the time
+   */
   get timeFromNow() {
     return moment(this.person.lastUpdated).fromNow();
   }
 
+  /**
+   * This helper uses another two ones to return true if positive votes are greater
+   *
+   * Params void
+   * returns bool
+   */
   get greater() {
     return this.positivePercentage > this.negativePercentage;
   }
-
 
   @action
   sumOnePositive() {
@@ -60,7 +115,7 @@ export default class PreviousRulingItemComponent extends Component {
   }
 
   @action
-  changeView(){
+  changeView() {
     if (this.args.view) {
       this.view = this.args.view;
     }
