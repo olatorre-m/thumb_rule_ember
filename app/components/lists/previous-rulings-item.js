@@ -1,10 +1,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 import moment from 'moment';
 
 export default class PreviousRulingItemComponent extends Component {
   @tracked person;
   @tracked voted = false;
+  @service media;
 
   constructor(...args) {
     super(...args);
@@ -30,5 +34,27 @@ export default class PreviousRulingItemComponent extends Component {
 
   get timeFromNow() {
     return moment(this.person.lastUpdated).fromNow();
+  }
+
+  get greater() {
+    return this.positivePercentage > this.negativePercentage;
+  }
+
+
+  @action
+  sumOnePositive() {
+    set(this.person.votes, 'positive', (this.person.votes.positive += 1));
+    this.toggleVoted;
+    console.log(this.person.votes.positive);
+  }
+
+  @action
+  sumOneNegative() {
+    set(this.person.votes, 'negative', (this.person.votes.negative += 1));
+    this.toggleVoted;
+  }
+
+  toggleVoted() {
+    this.voted = !this.voted;
   }
 }

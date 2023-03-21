@@ -1,0 +1,155 @@
+.card-container-mobile {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.card-container-tablet {
+    display: grid;
+    grid-template-columns: 360px 360px;
+}
+
+.card-container-desktop {
+    display: grid;
+    grid-template-columns: 360px 360px 360px;
+}
+
+.outline{
+    margin: 5px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 90vw;
+    width: 90vw;
+    max-width: 350px;
+    max-height: 350px;
+    border-radius: 0px;
+    background-size: cover;
+}
+
+div{
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.card-title{
+    display: inline-flex;
+}
+
+.title{
+    font-size: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.description{
+    font-size: 15px;
+    line-height: 18px;
+    padding: 10px 10px 0px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.winner > .thumbs-up,
+.winner > .thumbs-down{
+    height: 30px;
+    width: 30px;
+    border: 0;
+}
+
+div.voting-buttons{
+    padding: 8px  0px;
+}
+
+.voting-buttons > .icon-button {
+    height: 30px;
+    width: 30px;
+}
+
+.voting-buttons > button.icon-button{
+    padding-left: 5px;
+}
+
+.winner > .icon-button > img,
+.voting-buttons > .icon-button > img{
+    height: 15px;
+    width: 15px;
+}
+
+.thumbs-up,
+.voting-buttons >.icon-button[aria-label="thumbs up"] {
+    background-color: rgba(var(--color-green-positive), 1);
+}
+
+.thumbs-down,
+.voting-buttons >.icon-button[aria-label="thumbs down"] {
+    background-color: rgba(var(--color-yellow-negative), 1);
+}
+
+.vote-button{
+    height: 38px;
+    color: #FFFFFF;
+    background-color:  rgba(0, 0, 0, 0.6);
+    border: 1px solid #FFFFFF;
+    padding: 0 25px;
+    margin-left: 12px;
+}
+
+.card-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px 30px 12px 0;
+    font-size: 12px; 
+    line-height: 14.4px;
+}
+
+.date-section{
+    padding-bottom: 10px;
+}
+
+.card-footer > .voting-buttons > button{
+    margin-left: 12px;
+}
+
+.percentage-bar{
+    display: flex;
+    white-space: nowrap;
+    height: 36px;
+    width: 100%;
+}
+
+.percentage-bar > .thumbs{
+    height: 100%;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.percentage-bar > .thumbs > img{
+    height: 15px;
+    width: 15px;
+}
+
+.percentage-bar >  button{
+    min-width: 70px;
+}
+
+.percentage-bar > .icon-button[aria-label="thumbs up"] {
+    text-align: left;
+    padding: 0 0 0 15px;
+}
+
+.percentage-bar > .icon-button[aria-label="thumbs down"] {
+    padding: 0 15px 0 0;
+    text-align: right;
+}

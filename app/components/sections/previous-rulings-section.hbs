@@ -1,8 +1,14 @@
 <h2>Previous Rulings</h2>
 
-{{!--Aqui deberia ir el dd para grid o para list--}}
+ {{#unless (media 'isMobile')}}
+ {{!--Aqui va el dd--}}
+ {{/unless}}
 
 {{!--Calling to Previous Ruling list--}}
-{{#each this.data.data as |person|}}
-    <Lists::PreviousRulingsItem @person = {{person}}/>
-{{/each}}
+<div class="{{if (media 'isMobile') 'card-container-mobile'}}
+            {{if (media 'isTablet') 'card-container-tablet'}}
+            {{if (media 'isDesktop') 'card-container-desktop'}}">
+    {{#each this.data.data as |person|}}
+        <Lists::PreviousRulingsItem @person = {{person}}/>
+    {{/each}}
+</div>
