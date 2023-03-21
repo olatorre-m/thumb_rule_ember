@@ -1,12 +1,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import moment from 'moment';
+import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
+import moment from 'moment';
 
 export default class PreviousRulingItemComponent extends Component {
   @tracked person;
   @tracked voted = false;
+  @service media;
 
   constructor(...args) {
     super(...args);
