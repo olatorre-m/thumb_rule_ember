@@ -1,7 +1,14 @@
-# thumb-rule
+# Thumb-rule
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repository has a front end project based on the specifications of this repository. https://github.com/zemoga/ui-test
+This app allows the user to rate different celebrities with positive and negative votes that are reflected in the inferior bar that is updated every time you vote.
+The initial data are obtained from a json file and the new votes are stored in the local storage.
+
+This project uses Ember js as a front end framework. The styles are done with CSS and use media responsive service (https://www.npmjs.com/package/ember-responsive) to recognize screen size.
+
+The time since updating at the post use moment (https://www.npmjs.com/package/ember-responsive) to convert the data object into a more natural sentence for human understanding.
+
+The remaining components use HTML and CSS to mock up this Figma's design (https://www.figma.com/file/NlQ6PjfanVO2YyuDUaohjx/Rule-of-Thumb---FED-Challenge) and use javascript to add functionalities.
 
 ## Prerequisites
 
@@ -24,10 +31,6 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
 ### Running Tests
 
 * `ember test`
@@ -45,7 +48,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
