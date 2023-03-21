@@ -47,7 +47,7 @@ You will need the following things properly installed on your computer.
 * `ember build --environment production` (production)
 
 ### Deploying
-
+To visualizate the final deployment go to the following link https://olatorre-m.surge.sh
 
 ## Further Reading / Useful Links
 
