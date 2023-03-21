@@ -153,3 +153,47 @@ div.voting-buttons{
     padding: 0 15px 0 0;
     text-align: right;
 }
+
+#section-title{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#view {
+    margin-top: 20px;
+    border: 2px solid #333333;
+    height: 28px;
+    width: 130px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.list{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.list > .outline > .card{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    max-width: 100%;
+    height: 144px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.list > .outline > .card > .card-body {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    align-items: center;
+}
+
+#title-text{
+    margin-left: 15%;
+}
+
+

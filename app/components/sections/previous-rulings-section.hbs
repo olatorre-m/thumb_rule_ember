@@ -1,14 +1,28 @@
-<h2>Previous Rulings</h2>
+<div id="section-title"><h2>Previous Rulings</h2>
 
  {{#unless (media 'isMobile')}}
- {{!--Aqui va el dd--}}
+ {{!--This select is only visible in tablet or desktop screen size--}}
+    <div id="view-select">
+        <select name="view" id="view" {{on 'change' this.onSelectOption}}>
+            <option value="grid">Grid</option>
+            <option value="list">List</option>
+        </select>
+    </div>
  {{/unless}}
+</div>
 
 {{!--Calling to Previous Ruling list--}}
-<div class="{{if (media 'isMobile') 'card-container-mobile'}}
-            {{if (media 'isTablet') 'card-container-tablet'}}
-            {{if (media 'isDesktop') 'card-container-desktop'}}">
-    {{#each this.data.data as |person|}}
-        <Lists::PreviousRulingsItem @person = {{person}}/>
-    {{/each}}
+<div class="{{if (eq this.view "grid") "grid" "list"}}">
+    <div class="{{if (media 'isMobile') 'card-container-mobile'}}
+                {{if (media 'isTablet') 'card-container-tablet'}}
+                {{if (media 'isDesktop') 'card-container-desktop'}} 
+                {{this.view}}">
+
+        {{#each this.data.data as |person|}}
+            <Lists::PreviousRulingsItem 
+                @person = {{person}}
+                @view = {{this.view}}
+            />
+        {{/each}}
+    </div>
 </div>

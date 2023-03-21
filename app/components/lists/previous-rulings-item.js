@@ -8,6 +8,7 @@ import moment from 'moment';
 export default class PreviousRulingItemComponent extends Component {
   @tracked person;
   @tracked voted = false;
+  @tracked view;
   @service media;
 
   constructor(...args) {
@@ -56,5 +57,12 @@ export default class PreviousRulingItemComponent extends Component {
 
   toggleVoted() {
     this.voted = !this.voted;
+  }
+
+  @action
+  changeView(){
+    if (this.args.view) {
+      this.view = this.args.view;
+    }
   }
 }
