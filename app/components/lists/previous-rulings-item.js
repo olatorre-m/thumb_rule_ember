@@ -54,32 +54,6 @@ export default class PreviousRulingItemComponent extends Component {
   }
 
   /**
-   * This helper calculates the percentage of positive votes
-   *
-   * Params void
-   * returns float with 1 decimal
-   */
-  get positivePercentage() {
-    return (
-      (this.person.votes.positive * 100) /
-      (this.person.votes.positive + this.person.votes.negative)
-    ).toFixed(1);
-  }
-
-  /**
-   * This helper calculates the percentage of negatives votes
-   *
-   * Params void
-   * returns float with 1 decimal
-   */
-  get negativePercentage() {
-    return (
-      (this.person.votes.negative * 100) /
-      (this.person.votes.positive + this.person.votes.negative)
-    ).toFixed(1);
-  }
-
-  /**
    * This function set the percentage of negatives votes
    *
    * Params void
@@ -109,16 +83,6 @@ export default class PreviousRulingItemComponent extends Component {
    */
   get timeFromNow() {
     return moment(this.person.lastUpdated).fromNow();
-  }
-
-  /**
-   * This helper uses another two ones to return true if positive votes are greater
-   *
-   * Params void
-   * returns bool
-   */
-  get greater() {
-    return this.positivePercentage > this.negativePercentage;
   }
 
   @action

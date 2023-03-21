@@ -10,7 +10,7 @@
     linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19.79%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%),"}}>
             <div class="card-title">
                 <div class="winner">
-                    {{#if this.greater}}
+                    {{#if (gt this.person.votes.positivePercentage this.person.votes.negativePercentage)}}
                         <button class="thumbs-up">
                             <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
                         </button>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="percentage-bar" {{did-update this.changeView @view}}>
+        <div class="percentage-bar">
             <button class="icon-button thumbs" aria-label="thumbs up" style="width: {{this.person.votes.positivePercentage}}%">
                 <img src="assets/img/thumbs-up.svg" alt="thumbs up" /> {{this.person.votes.positivePercentage}}
             </button>
