@@ -181,14 +181,19 @@ div.voting-buttons{
     flex-direction: column; 
     justify-content: space-between;
     max-width: 100%;
+    height: 144px;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 .list > .outline > .card > .card-body {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 65% 35%;
+    align-items: center;
+}
 
+#title-text{
+    margin-left: 15%;
 }
 
 
