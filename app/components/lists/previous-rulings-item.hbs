@@ -10,7 +10,7 @@
     linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19.79%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%),"}}>
             <div class="card-title">
                 <div class="winner">
-                    {{#if this.greater}}
+                    {{#if (gt this.person.votes.positivePercentage this.person.votes.negativePercentage)}}
                         <button class="thumbs-up">
                             <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
                         </button>
@@ -50,19 +50,26 @@
                 </div>
                 <div class="voting-buttons">
                     {{#unless this.voted}}
-                        <button {{on "click" this.sumOnePositive}} class="icon-button" aria-label="thumbs up">
+                        <button type="button" class="icon-button" aria-label="thumbs up"
+                        disabled={{this.canVote}} 
+                        {{on "click" this.sumOnePositive}} >
                             <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
                         </button>
-                        <button {{on "click" this.sumOneNegative}} class="icon-button" aria-label="thumbs down">
+                        <button type="button" class="icon-button" aria-label="thumbs down"
+                        disabled={{this.canVote}} 
+                        {{on "click" this.sumOneNegative}}>
                             <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
                         </button>
                     {{/unless}}
                     {{#unless this.voted}}
-                        <button type="button" class="vote-button">
+                        <button type="button" class="vote-button {{if this.canVote "allowed" "not-allowed"}}"
+                        disabled={{not this.canVote}}
+                        {{on "click" this.submitVote}}>
                             Vote Now
                         </button>
                     {{else}}
-                        <button type="button" class="vote-button">
+                        <button type="button" class="vote-button"
+                        {{on "click" this.reset}}>
                             Vote Again
                         </button>
                     {{/unless}}
@@ -70,11 +77,11 @@
             </div>
         </div>
         <div class="percentage-bar">
-            <button class="icon-button thumbs" aria-label="thumbs up" style="width: {{this.positivePercentage}}%">
-                <img src="assets/img/thumbs-up.svg" alt="thumbs up" /> {{this.positivePercentage}}
+            <button class="icon-button thumbs" aria-label="thumbs up" style="width: {{this.person.votes.positivePercentage}}%">
+                <img src="assets/img/thumbs-up.svg" alt="thumbs up" /> {{this.person.votes.positivePercentage}}
             </button>
-            <button class="icon-button thumbs" aria-label="thumbs down" style="width: {{this.negativePercentage}}%">
-                {{this.negativePercentage}} <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+            <button class="icon-button thumbs" aria-label="thumbs down" style="width: {{this.person.votes.negativePercentage}}%" >
+                {{this.person.votes.negativePercentage}} <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
             </button>
         </div>
     </div>
