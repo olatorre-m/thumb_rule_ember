@@ -3,7 +3,7 @@
  {{#unless (media 'isMobile')}}
  {{!--This select is only visible in tablet or desktop screen size--}}
     <div id="view-select">
-        <select name="view" id="view" {{on 'select' this.onSelectOption}}>
+        <select name="view" id="view" {{on 'change' this.onSelectOption}}>
             <option value="grid">Grid</option>
             <option value="list">List</option>
         </select>
@@ -12,15 +12,17 @@
 </div>
 
 {{!--Calling to Previous Ruling list--}}
-<div class="{{if (media 'isMobile') 'card-container-mobile'}}
-            {{if (media 'isTablet') 'card-container-tablet'}}
-            {{if (media 'isDesktop') 'card-container-desktop'}} 
-            {{this.view}}">
+<div class="{{if (eq this.view "grid") "grid" "list"}}">
+    <div class="{{if (media 'isMobile') 'card-container-mobile'}}
+                {{if (media 'isTablet') 'card-container-tablet'}}
+                {{if (media 'isDesktop') 'card-container-desktop'}} 
+                {{this.view}}">
 
-    {{#each this.data.data as |person|}}
-        <Lists::PreviousRulingsItem 
-            @person = {{person}}
-            @view = {{this.view}}
-        />
-    {{/each}}
+        {{#each this.data.data as |person|}}
+            <Lists::PreviousRulingsItem 
+                @person = {{person}}
+                @view = {{this.view}}
+            />
+        {{/each}}
+    </div>
 </div>

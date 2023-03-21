@@ -162,11 +162,13 @@ div.voting-buttons{
 }
 
 #view {
+    margin-top: 20px;
     border: 2px solid #333333;
     height: 28px;
     width: 130px;
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: center;
 }
 
 .list{
