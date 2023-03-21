@@ -96,6 +96,20 @@ div.voting-buttons{
     background-color: rgba(var(--color-yellow-negative), 1);
 }
 
+.thumbs-up,
+.voting-buttons >.icon-button[aria-label="thumbs up"]:hover {
+    border: #FFFFFF;
+    border-radius: 1px;
+    background-color: rgba(var(--color-green-positive), 0.5);
+}
+
+.thumbs-down,
+.voting-buttons >.icon-button[aria-label="thumbs down"]:hover {
+    border: #FFFFFF;
+    border-radius: 1px;
+    background-color: rgba(var(--color-yellow-negative), 0.5);
+}
+
 .vote-button{
     height: 38px;
     color: #FFFFFF;
@@ -103,6 +117,11 @@ div.voting-buttons{
     border: 1px solid #FFFFFF;
     padding: 0 25px;
     margin-left: 12px;
+}
+
+.vote-button:hover{
+    background-color:  rgba(0, 0, 0, 0.9);
+    border: 2px solid #FFFFFF;
 }
 
 .card-footer{
@@ -196,4 +215,15 @@ div.voting-buttons{
     margin-left: 15%;
 }
 
+.allowed,
+button {
+    cursor: pointer;
+}
 
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.card{
+    margin: 1px;
+}
