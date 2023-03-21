@@ -20,6 +20,8 @@ export default class PreviousRulingItemComponent extends Component {
     }
 
     this.setLocalStorage();
+    this.setNegativePercentage();
+    this.setPositivePercentage();
   }
 
   /**
@@ -63,6 +65,36 @@ export default class PreviousRulingItemComponent extends Component {
       (this.person.votes.positive * 100) /
       (this.person.votes.positive + this.person.votes.negative)
     ).toFixed(1);
+  }
+
+  /**
+   * This function set the percentage of negatives votes
+   *
+   * Params void
+   * returns float with 1 decimal
+   */
+  setNegativePercentage() {
+    let percentage = (
+      (this.person.votes.negative * 100) /
+      (this.person.votes.positive + this.person.votes.negative)
+    ).toFixed(1);
+
+    set(this.person.votes, 'negativePercentage', percentage);
+  }
+
+  /**
+   * This function set the percentage of positive votes
+   *
+   * Params void
+   * returns float with 1 decimal
+   */
+  setPositivePercentage() {
+    let percentage = (
+      (this.person.votes.positive * 100) /
+      (this.person.votes.positive + this.person.votes.negative)
+    ).toFixed(1);
+
+    set(this.person.votes, 'positivePercentage', percentage);
   }
 
   /**
@@ -128,7 +160,15 @@ export default class PreviousRulingItemComponent extends Component {
       this.person.picture + '_positive',
       this.person.votes.positive
     );
+    this.setNegativePercentage();
+    this.setPositivePercentage();
     this.toggleCanVote();
+    this.toggleVoted();
+  }
+
+  @action
+  reset() {
+    this.toggleVoted();
   }
 
   @action
